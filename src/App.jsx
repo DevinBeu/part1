@@ -11,12 +11,13 @@ const Part = ({ name, exercises }) => {
   );
 };
 
-const Content = ({ part1, part2, part3 }) => {
+const Content = ({ obj1, obj2, obj3 }) => {
+  console.log(obj1);
   return (
     <div>
-      <Part name={part1.name} exercises={part1.exercises} />
-      <Part name={part2.name} exercises={part2.exercises} />
-      <Part name={part3.name} exercises={part3.exercises} />
+      <Part name={obj1.name} exercises={obj1.exercises} />
+      <Part name={obj2.name} exercises={obj2.exercises} />
+      <Part name={obj3.name} exercises={obj3.exercises} />
     </div>
   );
 };
@@ -28,24 +29,25 @@ const Content = ({ part1, part2, part3 }) => {
 
 const App = () => {
   const course = "Half Stack application development";
-  const part1 = {
-    name: "Fundamentals of React",
-    exercises: 10,
-  };
-  const part2 = {
-    name: "Using props to pass data",
-    exercises: 7,
-  };
-  const part3 = {
-    name: "State of a component",
-    exercises: 14,
-  };
-  //const totalExercises = exercises1 + exercises2 + exercises3;
+  const parts = [
+    {
+      name: "Fundamentals of React",
+      exercises: 10,
+    },
+    {
+      name: "Using props to pass data",
+      exercises: 7,
+    },
+    {
+      name: "State of a component",
+      exercises: 14,
+    },
+  ];
 
   return (
     <div>
       <Header text="Half stack application dev" />
-      <Content part1={part1} part2={part2} part3={part3} />
+      <Content obj1={parts[0]} obj2={parts[1]} obj3={parts[2]} />
       {/* <Total total={totalExercises} /> */}
     </div>
   );
