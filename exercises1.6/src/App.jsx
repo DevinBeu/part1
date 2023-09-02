@@ -4,6 +4,86 @@ import "./App.css";
 const Button = (props) => {
   return <button onClick={props.handleClick}>{props.text}</button>;
 };
+// const StatisticLine = ({ text, value }) => {
+//   return (
+//     <div>
+//       {text}:{value}
+//     </div>
+//   );
+// };
+
+const StatisticLine = ({ text, value }) => {
+  return (
+    <tr>
+      <td>{text}</td>
+      <td>{value}</td>
+    </tr>
+  );
+};
+
+// const Statistics = ({ good, neutral, bad, total, score }) => {
+//   if (total === 0) {
+//     return <div>No feedback given</div>;
+//   } else {
+//     return (
+//       <div>
+//         <h2>Statistics</h2>
+//         <table>
+//           <tbody>
+//             <StatisticLine text="Good" value={good} />
+//             <StatisticLine text="Neutral" value={neutral} />
+//             <StatisticLine text="Bad" value={bad} />
+//             <StatisticLine text="Total" value={total} />
+//             <StatisticLine text="Average" value={score / total} />
+//             <StatisticLine text="Positive" value={`${(good / total) * 100} %`} />
+//           </tbody>
+//         </table>
+//       </div>
+//     );
+//   }
+// };
+const Statistics = ({ good, neutral, bad, total, score }) => {
+  if (total === 0) {
+    return <div>No feedback given</div>;
+  } else {
+    return (
+      <div>
+        <h2>Statistics</h2>
+        <table>
+          <tbody>
+            <StatisticLine text="Good" value={good} />
+            <StatisticLine text="Neutral" value={neutral} />
+            <StatisticLine text="Bad" value={bad} />
+            <StatisticLine text="Total" value={total} />
+            <StatisticLine text="Average" value={score / total} />
+            <StatisticLine
+              text="Positive"
+              value={`${(good / total) * 100} %`}
+            />
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+};
+
+// const Statistics = ({ good, neutral, bad, total, score }) => {
+//   if (total === 0) {
+//     return <div>No feedback given</div>;
+//   } else {
+//     return (
+//       <div>
+//         <h2>Statistics</h2>
+//         <StatisticLine text="Good" value={good} />
+//         <StatisticLine text="Neutral" value={neutral} />
+//         <StatisticLine text="Bad" value={bad} />
+//         <StatisticLine text="Total" value={total} />
+//         <StatisticLine text="Average" value={score / total} />
+//         <StatisticLine text="Positive" value={`${(good / total) * 100} %`} />
+//       </div>
+//     );
+//   }
+// };
 
 const App = () => {
   // Save clicks of each button to its own state
@@ -17,10 +97,10 @@ const App = () => {
     <div>
       <h2>Give Feedback</h2>
       <Button
-        text="Good"
         handleClick={() =>
           setGood(good + 1, setTotal(total + 1), setScore(score + 1))
         }
+        text="Good"
       />
       <Button
         text="Neutral"
@@ -33,13 +113,13 @@ const App = () => {
         }
       />
 
-      <h2>Statistics</h2>
-      <div>Good: {good}</div>
-      <div>Neutral: {neutral}</div>
-      <div>Bad: {bad}</div>
-      <div>Total:{total}</div>
-      <div>Average:{score / total}</div>
-      <div>Positive:{good / total}</div>
+      <Statistics
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        total={total}
+        score={score}
+      />
     </div>
   );
 };
