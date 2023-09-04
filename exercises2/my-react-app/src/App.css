@@ -1,0 +1,67 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f6f7fb;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+div {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.2s;
+}
+
+div:hover {
+  transform: scale(1.02);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #444;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}
+
+div > div {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 320px) {
+  div {
+    width: 90%;
+  }
+}
